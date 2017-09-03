@@ -1,0 +1,22 @@
+Enter your location here:
+
+<%= form_tag '/forecasts', method: :get do %>
+  <br>
+  <p><%= label_tag :city %></p>
+  <%= text_field_tag :city %>
+  <br>
+  <p><%= label_tag :state %></p>
+  <%= text_field_tag :state %>
+  <br>
+  <p><%= submit_tag "Get your forecast" %></p>
+<% end %>
+
+<p><%= @forecasts['query']['results']['channel']['title'] %></p>
+<hr>
+<% @forecasts['query']['results']['channel']['item']['forecast'][0..4].each do |forecast| %>
+  <h3><%= forecast['day'] %>, <%= forecast['date'] %></h3>
+  <p>Forecast: <%= forecast['text'] %></p>
+  <p>High: <%= forecast['high'] %></p>
+  <p>Low: <%= forecast['low'] %></p>
+  <hr>
+<% end %>

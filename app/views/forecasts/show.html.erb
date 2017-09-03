@@ -1,0 +1,10 @@
+<%= form_tag '/forecasts', method: :post do %>
+      <br>
+      <p><%= label_tag :city %></p>
+      <p><%= text_field_tag :city %></p>
+      <br>
+      <p><%= label_tag :region %></p>
+      <p><%= text_field_tag :region %></p>
+      <br>
+      <p><%= submit_tag "Get your forecast" %></p>
+    <% end %>
